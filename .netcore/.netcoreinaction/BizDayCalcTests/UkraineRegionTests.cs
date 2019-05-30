@@ -8,7 +8,7 @@ namespace BizDayCalcTests
     public class UkraineRegionTests : IClassFixture<UkraineRegionFixture>
     {
         private readonly UkraineRegionFixture fixture;
-        
+
         public UkraineRegionTests(UkraineRegionFixture fixture)
         {
             this.fixture = fixture;
@@ -17,6 +17,7 @@ namespace BizDayCalcTests
         [Theory]
         [InlineData("2016-01-01")]
         [InlineData("2016-12-25")]
+        [Trait("Holidays", "true")]
         public void TestHolidays(string date)
         {
             Assert.False(fixture.Calculator.IsBussinessDay(
