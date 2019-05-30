@@ -5,11 +5,12 @@ using Xunit;
 
 namespace BizDayCalcTests
 {
-    public class UkraineRegionTests : IClassFixture<UkraineRegionFixture>
+    [Collection("Ukraine region collection")]
+    public class UkraineRegionCollectionFixtureTests
     {
         private readonly UkraineRegionFixture fixture;
-        
-        public UkraineRegionTests(UkraineRegionFixture fixture)
+
+        public UkraineRegionCollectionFixtureTests(UkraineRegionFixture fixture)
         {
             this.fixture = fixture;
         }

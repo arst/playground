@@ -1,4 +1,5 @@
 using BizDayCalc;
+using Xunit;
 
 namespace BizDayCalcTests 
 {
@@ -12,5 +13,10 @@ namespace BizDayCalcTests
             Calculator.AddRule(new WeekendRule());
             Calculator.AddRule(new HolidaysRule());
         }
+    }
+
+    [CollectionDefinition("Ukraine region collection")]
+    public class USRegionCollection : ICollectionFixture<UkraineRegionFixture>
+    {
     }
 }
