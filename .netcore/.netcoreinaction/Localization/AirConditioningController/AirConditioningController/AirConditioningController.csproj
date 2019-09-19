@@ -9,6 +9,10 @@
     <Resx Include="*.restext" />
     <EmbeddedResource Include="*.resources" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+  </ItemGroup>
 
   <Target Name="BuildResources">
     <GenerateResource ExecuteAsTool="false" Sources="@(Resx)">

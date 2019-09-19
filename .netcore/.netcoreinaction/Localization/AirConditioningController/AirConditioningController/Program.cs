@@ -13,9 +13,7 @@ namespace AirConditioningController
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
-            var resourceManager = new ResourceManager("AirConditioningController.messages", typeof(Program).Assembly);
-
-            Console.WriteLine($"{resourceManager.GetString("ExhaustAirTemp")}: {TemperatureController.EaxhaustAirTemperature} ");
+            TemperatureController.Test();
         }
     }
 }
