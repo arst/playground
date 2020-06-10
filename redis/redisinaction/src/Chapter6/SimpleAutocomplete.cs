@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 
 namespace RedisInAction.Chapter6
 {
-    internal class SimpleAutocomplete
+    internal sealed class SimpleAutocomplete
     {
         private readonly ConnectionMultiplexer connectionMultiplexer;
 
-        public SimpleAutocomplete(ConnectionMultiplexer connectionMultiplexer)
+        internal SimpleAutocomplete(ConnectionMultiplexer connectionMultiplexer)
         {
             this.connectionMultiplexer = connectionMultiplexer;
         }
 
-        private async Task<List<string>> GetContacts(string userName)
+        internal async Task<IReadOnlyCollection<string>> GetContacts(string userName)
         {
             var database = connectionMultiplexer.GetDatabase();
             var key = $"recent: {userName}";
@@ -29,7 +29,7 @@ namespace RedisInAction.Chapter6
             return result;
         }
 
-        private async Task AddOrUpdateContact(string userName, string contactName)
+        internal async Task AddOrUpdateContact(string userName, string contactName)
         {
             var database = connectionMultiplexer.GetDatabase();
             var key = $"recent: {userName}";
@@ -39,14 +39,14 @@ namespace RedisInAction.Chapter6
                 database.ListTrimAsync(key, 0, 99));
         }
 
-        private async Task RemoveContact(string userName, string contactName)
+        internal async Task RemoveContact(string userName, string contactName)
         {
             var database = connectionMultiplexer.GetDatabase();
             var key = $"recent: {userName}";
             await database.ListRemoveAsync(key, contactName, 0);
         }
 
-        private async Task<List<string>> FetchAutoComplete(string userName, string prefix)
+        internal async Task<IReadOnlyCollection<string>> FetchAutoComplete(string userName, string prefix)
         {
             var database = connectionMultiplexer.GetDatabase();
             var key = $"recent: {userName}";
