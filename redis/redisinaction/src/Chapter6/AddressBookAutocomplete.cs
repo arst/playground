@@ -1,7 +1,6 @@
 ﻿using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,9 +16,9 @@ namespace RedisInAction.Chapter6
             this.connectionMultiplexer = connectionMultiplexer;
         }
 
-        private (string RangeStart, string RangeEnd) FindPrefixRange(string prefix)
+        private static (string RangeStart, string RangeEnd) FindPrefixRange(string prefix)
         {
-            var validCharacters = "`abcdefghijklmnopqrstuvwxyz{";
+            const string validCharacters = "`abcdefghijklmnopqrstuvwxyz{";
 
             var lastCharacterPosition = validCharacters.IndexOf(prefix.Last());
 
