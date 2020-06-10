@@ -42,13 +42,13 @@ namespace RedisInAction.Chapter6
 
             var database = connectionMultiplexer.GetDatabase();
 
-            database.SortedSetAdd(sortedSetName, rangeStart, 0);
-            database.SortedSetAdd(sortedSetName, rangeEnd, 0);
             var commited = false;
             RedisValue[] items = null;
 
             while (!commited)
             {
+                database.SortedSetAdd(sortedSetName, rangeStart, 0);
+                database.SortedSetAdd(sortedSetName, rangeEnd, 0);
                 var startRank = await database.SortedSetRankAsync(sortedSetName, rangeStart);
                 var endRank = await database.SortedSetRankAsync(sortedSetName, rangeEnd);
                 var endRange = Math.Min(startRank.Value + 9, endRank.Value - 2);
