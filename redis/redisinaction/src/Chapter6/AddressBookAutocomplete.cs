@@ -78,7 +78,7 @@ namespace RedisInAction.Chapter6
 
             return items
                 .Select(arg => arg.ToString())
-                .Where(arg => !arg.Contains("{"))
+                .Where(arg => arg.IndexOf('{') < 0)
                 .ToList()
                 .AsReadOnly();
         }
