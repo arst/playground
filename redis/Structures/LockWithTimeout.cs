@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace RedisInAction.Chapter6
+namespace RedisInAction.Structures
 {
     internal sealed class LockWithTimeout
     {

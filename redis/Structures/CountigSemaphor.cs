@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace RedisInAction.Chapter6
+namespace RedisInAction.Structures
 {
     internal sealed class CountigSemaphor
     {

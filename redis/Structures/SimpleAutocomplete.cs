@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RedisInAction.Chapter6
+namespace RedisInAction.Structures
 {
     internal sealed class SimpleAutocomplete
     {
